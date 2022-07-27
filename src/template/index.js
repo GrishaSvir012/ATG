@@ -11,7 +11,7 @@ export default function template(initState) {
   const html = fs.readFileSync(Path, 'utf-8');
   const hbsTemplate = hbs.compile(html);
   const reactComponent = renderToString(
-    <StaticRouter>
+    <StaticRouter location={initState.path}>
       <App {...initState} />
     </StaticRouter>,
   );
