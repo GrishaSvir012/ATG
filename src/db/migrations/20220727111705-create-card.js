@@ -19,11 +19,14 @@ module.exports = {
       img: {
         type: Sequelize.TEXT,
       },
-      buyer_id: {
-        type: Sequelize.INTEGER,
-      },
       user_id: {
         type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Users',
+          },
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
