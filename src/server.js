@@ -3,8 +3,7 @@ import morgan from 'morgan';
 import path from 'path';
 import template from './template';
 import apiRouter from './routes/apiRouts';
-import accRout from './routes/newRouter';
-import cartRout from './routes/newRouter';
+import indexRouter from './routes/indexRouter';
 
 const app = express();
 const PORT = 3000;
@@ -20,8 +19,7 @@ app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl }));
 });
 
-app.use('/percAcc', accRout);
-app.use('/cart', cartRout);
+
 
 app.listen(PORT, () => {
   // console.log(__dirname);
