@@ -35,11 +35,10 @@ app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl, usernameSession: req.session.name }));
 });
 
-<<<<<<< HEAD
 
-=======
 app.use('/api/v1', apiRouter);
->>>>>>> fea58fde9a19300ad91742a073e3cdb20f2ea7ad
+
+
 
 app.listen(PORT, () => {
   console.log(`App has started on port ${PORT}`);
