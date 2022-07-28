@@ -4,7 +4,8 @@ import Card from './Card';
 export default function AllCards({ cards, setCards }) {
   return (
 
-    <div className="row row-cols-3 position: justify- content - between">
+    <div className="d-flex justify-content-between flex-wrap">
+
       {
         cards
           ? cards.map((card) => (
@@ -14,8 +15,9 @@ export default function AllCards({ cards, setCards }) {
               key={card.id}
             />
           ))
-          : 'Загрузка блеадь!'
+          : 'ЧОРТ!'
       }
     </div>
+
   );
 }
