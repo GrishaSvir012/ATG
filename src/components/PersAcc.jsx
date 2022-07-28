@@ -22,7 +22,7 @@ export default function Cart() {
         <h2 className="accName">тут_будет_Имя_пользователя</h2>
         <div className="persAcc">Личный кабинет</div>
         <div className="container container--cart">
-          <button className="btn btn-orange">
+          <button type="button" className="btn btn-orange">
             <label id="choose2" htmlFor="avatar">Выбрать фото карточки</label>
             <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
           </button>
