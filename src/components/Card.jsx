@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
 export default function Card({ card, setCards }) {
@@ -21,3 +20,4 @@ export default function Card({ card, setCards }) {
     </div>
   );
 }
+
