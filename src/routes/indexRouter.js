@@ -8,7 +8,12 @@ route.get('/', (req, res) => {
   console.log('req.originalUrl', req.originalUrl);
 });
 
-route.get('/sign', (req, res) => {
+route.post('/signup', (req, res) => {
+  res.send(template({ path: req.originalUrl }));
+  console.log('req.originalUrl', req.originalUrl);
+})
+
+route.get('/signin', (req, res) => {
   res.send(template({ path: req.originalUrl }));
   console.log('req.originalUrl', req.originalUrl);
 })

@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import path from 'path';
 import template from './template';
 import apiRouter from './routes/apiRouts';
+import indexRouter from './routes/indexRouter';
 
 const app = express();
 const PORT = 3000;
@@ -12,6 +13,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api/v1', apiRouter);
+app.use('/signup', indexRouter);
 
 app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl }));
