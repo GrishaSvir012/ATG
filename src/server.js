@@ -5,6 +5,8 @@ import session from 'express-session';
 import store from 'session-file-store';
 import template from './template';
 import apiRouter from './routes/apiRouts';
+import accRout from './routes/newRouter';
+import cartRout from './routes/newRouter';
 
 const app = express();
 const PORT = 3000;
@@ -13,6 +15,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 const FileStore = store(session);
 
@@ -30,9 +33,11 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
+
 app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl, usernameSession: req.session.name }));
 });
+
 
 app.use('/api/v1', apiRouter);
 

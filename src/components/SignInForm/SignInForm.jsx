@@ -14,6 +14,11 @@ export default function SignInForm({ setAuthUser }) {
         .then((res) => setAuthUser(res.data));
       navigate('/');
     }
+        // .catch((error) => {
+        //   console.log(Error);
+        //   navigate('/signin');
+        // });
+      // navigate('/');
   };
   return (
     <form onSubmit={submitHandler}>

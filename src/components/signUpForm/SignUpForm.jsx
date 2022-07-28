@@ -14,6 +14,7 @@ export default function SignUpForm({ setAuthUser }) {
     if (input.password !== '' && input.name !== '' && input.city !== '' && input.eMail !== '') {
       axios.post('/api/v1/signup', input)
         .then((res) => setAuthUser(res.data));
+
       navigate('/');
     }
   };
