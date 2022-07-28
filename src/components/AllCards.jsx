@@ -4,7 +4,7 @@ import Card from './Card';
 export default function AllCards({ cards, setCards }) {
   return (
 
-    <div className="row row-cols-2 position: justify- content - between">
+    <div className="row row-cols-3 position: justify- content - between">
       {
         cards
           ? cards.map((card) => (

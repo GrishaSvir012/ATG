@@ -5,7 +5,7 @@ export default function NavBarPrivate() {
   return (
     <nav className="navbar bg-light fixed-top">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">MTG</a>
+        <Link className="navbar-brand" to="/">MTG</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <span className="navbar-toggler-icon" />
         </button>
@@ -17,10 +17,10 @@ export default function NavBarPrivate() {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Войти</a>
+                <a className="nav-link active" aria-current="page" href="#">Личный кабинет</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Зарегистрироваться</a>
+                <a className="nav-link" href="#">Корзина</a>
               </li>
             </ul>
           </div>
