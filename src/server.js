@@ -35,7 +35,9 @@ app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl, usernameSession: req.session.name }));
 });
 
+
 app.use('/api/v1', apiRouter);
+
 
 
 app.listen(PORT, () => {
