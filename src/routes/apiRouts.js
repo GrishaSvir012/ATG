@@ -41,7 +41,9 @@ router.post('/signup', async (req, res) => {
   // Сохраняем в сессию какую-то информацию и актвиируем её
   // req.session.userId = currentUser.id;
   res.json({ name: currentUser.name });
-router.get('/percAcc', (req, res) => {
+});
+
+  router.get('/percAcc', (req, res) => {
   res.send(template({ path: req.originalUrl }));
   console.log('req.originalUrl', req.originalUrl);
 });

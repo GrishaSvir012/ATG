@@ -16,7 +16,6 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 const FileStore = store(session);
 
 const sessionConfig = {
@@ -33,11 +32,9 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
-
 app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl, usernameSession: req.session.name }));
 });
-
 
 app.use('/api/v1', apiRouter);
 
