@@ -3,7 +3,8 @@ import Card from './Card';
 
 export default function AllCards({ cards, setCards }) {
   return (
-    <div>
+
+    <div className="col">
       {cards
         ? cards.map((card) => (
           <Card

@@ -11,8 +11,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="col">
-      <div className="row">
+    <div className="col-3 mt-5">
+      <div className="row-3">
         <AllCards cards={cards} setCards={setCards} />
       </div>
     </div>

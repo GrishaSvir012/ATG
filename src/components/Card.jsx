@@ -1,10 +1,9 @@
 import React from 'react';
-import { image } from '../../public/img';
 
 export default function Card({ card, setCards }) {
   return (
-    <div className="card" style="width: 18rem;">
-      {/* <img src={image} className="card-img-top" alt="Картинка" /> */}
+    <div className="card" style={{width: "18rem"}}>
+      <img src="/img/" className="card-img-top" alt="Картинка" />
       <div className="card-body">
         <h5 className="card-title">{card.nameCard}</h5>
       </div>
