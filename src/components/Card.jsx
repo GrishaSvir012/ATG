@@ -1,9 +1,13 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 export default function Card({ card, setCards }) {
   return (
-    <div className="card" style={{width: "18rem"}}>
-      <img src="/img/" className="card-img-top" alt="Картинка" />
+    <div
+      className="card col"
+      style={{ width: '18rem', backgroundColor: 'purple' }}
+    >
+      <img src={`../../img/${card.img}`} className="card-img-top" alt="Картинка" />
       <div className="card-body">
         <h5 className="card-title">{card.nameCard}</h5>
       </div>

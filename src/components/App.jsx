@@ -7,12 +7,14 @@ import NavInvisibl from './NavBar/NavInvisibl';
 
 export default function App() {
   return (
-    <div className="container">
+    <>
       <NavBarPublic />
       <NavInvisibl />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </>
   );
 }
