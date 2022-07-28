@@ -1,22 +1,23 @@
 import React from 'react';
 
+
 export default function Cart() {
     return (
-        <div class="wrapper">
-            <div class="header">
-                <div class="container">
-                    <div class="header__logo">
+        <div className="wrapper">
+            <div className="header">
+                <div className="container">
+                    <div className="header__logo">
                         <button >
                             <img width="200" src="./img/logo.png" alt="MTG Trade" />
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="content">
-                <div class="container container--cart">
-                    <div class="cart">
-                        <div class="cart__top">
-                            <h2 class="content__title"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+            <div className="content">
+                <div className="container container--cart">
+                    <div className="cart">
+                        <div className="cart__top">
+                            <h2 className="content__title"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M6.33333 16.3333C7.06971 16.3333 7.66667 15.7364 7.66667 15C7.66667 14.2636 7.06971 13.6667 6.33333 13.6667C5.59695 13.6667 5 14.2636 5 15C5 15.7364 5.59695 16.3333 6.33333 16.3333Z"
@@ -29,7 +30,7 @@ export default function Cart() {
                                     stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                                 Корзина</h2>
-                            <div class="cart__clear">
+                            <div className="cart__clear">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M2.5 5H4.16667H17.5" stroke="#B6B6B6" stroke-width="1.2" stroke-linecap="round"
                                         stroke-linejoin="round" />
@@ -45,21 +46,21 @@ export default function Cart() {
                                 <span>Очистить корзину</span>
                             </div>
                         </div>
-                        <div class="content__items">
-                            <div class="cards">
-                                <div class="cards-img">
-                                    <img class="card-block__image"
+                        <div className="content__items">
+                            <div className="cards">
+                                <div className="cards-img">
+                                    <img className="card-block__image"
                                         src=""
                                         alt="Card" />
                                 </div>
-                                <div class="cards-info">
+                                <div className="cards-info">
                                     <h3>название карты</h3>
                                 </div>
-                                <div class="cards-price">
+                                <div className="cards-price">
                                     <b>900 ₽</b>
                                 </div>
-                                <div class="cards-remove">
-                                    <div class="button button--outline button--circle">
+                                <div className="cards-remove">
+                                    <div className="button button--outline button--circle">
                                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M5.92001 3.84V5.76V8.64C5.92001 9.17016 5.49017 9.6 4.96001 9.6C4.42985 9.6 4.00001 9.17016 4.00001 8.64L4 5.76L4.00001 3.84V0.96C4.00001 0.42984 4.42985 0 4.96001 0C5.49017 0 5.92001 0.42984 5.92001 0.96V3.84Z"
@@ -73,13 +74,13 @@ export default function Cart() {
                                 </div>
                             </div>
                         </div>
-                        <div class="cart__bottom">
-                            <div class="cart__bottom-details">
+                        <div className="cart__bottom">
+                            <div className="cart__bottom-details">
                                 <span> Всего карт: <b>1 шт.</b> </span>
                                 <span> Сумма покупки: <b>900 ₽</b> </span>
                             </div>
-                            <div class="cart__bottom-buttons">
-                                <div class="button pay-btn">
+                            <div className="cart__bottom-buttons">
+                                <div className="button pay-btn">
                                     <span>Отправить заказ</span>
                                 </div>
                             </div>
