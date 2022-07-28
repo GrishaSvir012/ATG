@@ -17,6 +17,8 @@ app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl }));
 });
 
+
+
 app.listen(PORT, () => {
   // console.log(__dirname);
   console.log(`App has started on port ${PORT}`);

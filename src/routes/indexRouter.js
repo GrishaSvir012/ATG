@@ -11,6 +11,16 @@ route.get('/', (req, res) => {
 route.get('/sign', (req, res) => {
   res.send(template({ path: req.originalUrl }));
   console.log('req.originalUrl', req.originalUrl);
-})
+});
+
+route.get('/percAcc', (req, res) => {
+  res.send(template({ path: req.originalUrl }));
+  console.log('req.originalUrl', req.originalUrl);
+});
+
+route.get('/card', (req, res) => {
+  res.send(template({ path: req.originalUrl }));
+  console.log('req.originalUrl', req.originalUrl);
+});
 
 export default route;
