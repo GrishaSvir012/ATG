@@ -1,4 +1,4 @@
-html {
+* {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -387,11 +387,12 @@ a {
 }
 
 body {
+
     background-color: #ffdf8c
 }
 
 .wrapper {
-    width: calc(100vw - 100px);
+    width: 1200px;
     height: 100%;
     background-color: #fff;
     margin: 50px auto;

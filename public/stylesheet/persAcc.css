@@ -8,10 +8,12 @@ label {
     display: block;
     font: 1rem 'Fira Sans', sans-serif;
 }
+
 .persAcc {
     text-align: center;
     color: rgb(238, 104, 1);
 }
+
 .accName {
     text-align: center;
     color: rgb(238, 104, 1);
