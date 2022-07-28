@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignInForm({ setAuthUser }) {
@@ -10,22 +9,22 @@ export default function SignInForm({ setAuthUser }) {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(input);
-    if (input.password !== '' && input.username !== '') {
-      axios.post('/api/v1', input)
-        .then((res) => setAuthUser(res.data))
+    if (input.password !== '' && input.eMail !== '') {
+      axios.post('/api/v1/signin', input)
+        .then((res) => setAuthUser(res.data));
       navigate('/');
     }
   };
   return (
     <form onSubmit={submitHandler}>
-         <h1>Sign In</h1>
+      <h1>Sign In</h1>
       <div className="mb-3">
         <label htmlFor="exampleInputUser" className="form-label">Username</label>
         <input
           value={input.username}
           onChange={changeHandler}
           type="text"
-          name="username"
+          name="eMail"
           className="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"

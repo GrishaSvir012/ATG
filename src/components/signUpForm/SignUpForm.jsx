@@ -3,30 +3,32 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUpForm({ setAuthUser }) {
-  const [input, setInput] = useState({ username: '', password: '', city: '', email: ''});
+  const [input, setInput] = useState({
+    name: '', password: '', city: '', eMail: '',
+  });
   const navigate = useNavigate();
   const changeHandler = (e) => setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(input);
-    if (input.password !== '' && input.username !== '' && input.city !== '' && input.email !== '') {
-      axios.post('/api/v1', input)
-        .then((res) => setAuthUser(res.data))
+    if (input.password !== '' && input.name !== '' && input.city !== '' && input.eMail !== '') {
+      axios.post('/api/v1/signup', input)
+        .then((res) => setAuthUser(res.data));
       navigate('/');
     }
   };
   return (
     <form onSubmit={submitHandler}>
-        <h1>Sign Up</h1>
+      <h1>Sign Up</h1>
       <div className="mb-3">
         <label htmlFor="exampleInputUser" className="form-label">Username</label>
         <input
-          value={input.username}
+          value={input.name}
           onChange={changeHandler}
           type="text"
-          name="username"
+          name="name"
           className="form-control"
-          id="exampleInputEmail1"
+          id="exampleInputName"
           aria-describedby="emailHelp"
           placeholder="Enter userName"
         />
@@ -34,10 +36,10 @@ export default function SignUpForm({ setAuthUser }) {
       <div className="mb-3">
         <label htmlFor="exampleInputUser" className="form-label">E-mail address</label>
         <input
-          value={input.email}
+          value={input.eMail}
           onChange={changeHandler}
           type="email"
-          name="email"
+          name="eMail"
           className="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
@@ -47,12 +49,12 @@ export default function SignUpForm({ setAuthUser }) {
       <div className="mb-3">
         <label htmlFor="exampleInputUser" className="form-label">City</label>
         <input
-          value={input.sity}
+          value={input.city}
           onChange={changeHandler}
           type="text"
           name="city"
           className="form-control"
-          id="exampleInputEmail1"
+          id="exampleInputCity"
           aria-describedby="emailHelp"
           placeholder="Enter city"
         />
@@ -60,7 +62,7 @@ export default function SignUpForm({ setAuthUser }) {
       <div className="mb-3">
         <label htmlFor="exampleInputPassword2" className="form-label">Password</label>
         <input
-          value={input.repeat}
+          value={input.password}
           onChange={changeHandler}
           type="password"
           name="password"
@@ -70,15 +72,14 @@ export default function SignUpForm({ setAuthUser }) {
         />
       </div>
       <div className="form-group">
-    <div className="form-check">
-      <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
-      <label className="form-check-label" htmlFor="invalidCheck">
-        Agree to terms and conditions
-      </label>
-      <div className="invalid-feedback">
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
+          <label className="form-check-label" htmlFor="invalidCheck">
+            Agree to terms and conditions
+          </label>
+          <div className="invalid-feedback" />
+        </div>
       </div>
-    </div>
-  </div>
       <button type="submit" className="btn btn-primary">Sign Up</button>
     </form>
   );
