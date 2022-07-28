@@ -9,13 +9,13 @@ import SignInForm from './SignInForm/SignInForm';
 
 export default function App() {
   return (
-    <div className="container">
+    <div>
       <NavBarPublic />
       <NavInvisibl />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path='/signup' element={<SignUpForm />}></Route>
-        <Route path='/signin' element={<SignInForm />}></Route>
+        <Route path="/signup" element={<SignUpForm />} />
+        <Route path="/signin" element={<SignInForm />} />
       </Routes>
     </div>
   );
