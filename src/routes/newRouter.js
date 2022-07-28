@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   console.log('req.originalUrl', req.originalUrl);
 });
 
-router.get('/cart', (req, res) => {
+router.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl }));
   console.log('req.originalUrl', req.originalUrl);
 });
