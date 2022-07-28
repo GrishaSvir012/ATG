@@ -10,14 +10,20 @@ export default function Card({ card, setCards }) {
       <div className="card-body py-0">
         <h5 className="card-title text-light">{card.nameCard}</h5>
         <ul>
-          <li className="list-group-item text-info">{card.cost}$</li>
-          <li className="list-group-item text-info">Uniq: {card.status}</li>
+          <li className="list-group-item text-info">
+            {card.cost}
+            $
+          </li>
+          <li className="list-group-item text-info">
+            Uniq:
+            {' '}
+            {card.status}
+          </li>
         </ul>
       </div>
       <div className="card-body py-0">
-        <button type="button" className='btn btn-warning'>Купить</button>
+        <button type="button" className="btn btn-warning">Купить</button>
       </div>
     </div>
   );
 }
-

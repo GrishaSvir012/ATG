@@ -13,9 +13,9 @@ import Card from './Card';
 export default function App({usernameSession}) {
   const [authUser, setAuthUser] = useState(usernameSession);
 
-  useEffect(() => {
-    console.log(authUser)
-  })
+  // useEffect(() => {
+  //   console.log(authUser)
+  // })
 
   return (
     <div>
@@ -23,11 +23,11 @@ export default function App({usernameSession}) {
       <NavInvisibl />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart setAuthUser={setAuthUser}/>} />
         <Route path="/percAcc" element={<PersAcc />} />
         <Route path="/card" element={<Card />} />
         <Route path="/signup" element={<SignUpForm setAuthUser={setAuthUser} authUser={authUser} />} />
-        <Route path="/signin" element={<SignInForm setAuthUser={setAuthUser}/>} />
+        <Route path="/signin" element={<SignInForm setAuthUser={setAuthUser} />} />
       </Routes>
     </div>
   );

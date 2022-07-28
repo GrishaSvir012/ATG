@@ -93,7 +93,7 @@ export default function Cart() {
                   />
                 </div>
                 <div className="cards-info">
-                  <h3>название карты</h3>
+                  <h3>{card.cardName}</h3>
                 </div>
                 <div className="cards-price">
                   <b>900 ₽</b>

@@ -1,19 +1,24 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function Cart() {
-  const [input, setInput] = useState({
-    cardName: '', stepen: '', city: '', price: '',
-  });
+export default function PersAcc({ setAuthUser }) {
+  const location = useLocation();
   const navigate = useNavigate();
-  const changeHandler = (e) => setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  const { card } = location.state;
+  const [input, setInput] = useState({
+    name: card.nameCard, status: card.status, city: card.city, cost: card.cost,
+  });
+  const changeName = (e) => setInput((prev) => ({ ...prev, name: e.target.value }));
+  const changeStatus = (e) => setInput((prev) => ({ ...prev, status: e.target.value }));
+  const changeCity = (e) => setInput((prev) => ({ ...prev, city: e.target.value }));
+  const changeCost = (e) => setInput((prev) => ({ ...prev, cost: e.target.value }));
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(input);
-    if (input.cardName !== '' && input.stepen !== '' && input.city !== '' && input.price !== '') {
+    if (input.nameCard !== '' && input.status !== '' && input.city !== '' && input.cost !== '') {
       axios.post('/api/v1', input)
-        .then((res) => setAuthUser(res.data));
-      navigate('/');
+        .then(() => navigate('/cart'));
     }
   };
   return (
@@ -28,8 +33,9 @@ export default function Cart() {
           </button>
           <div className="form-floating">
             <input
-              value={input.cardName}
-              onChange={changeHandler}
+              value={input.nameCard}
+              onChange={changeName}
+              name="name"
               type="text"
               className="form-control"
               id="floatingInput"
@@ -38,16 +44,16 @@ export default function Cart() {
             <label htmlFor="floatingInput">Название карточки</label>
           </div>
           <div className="form-floating">
-            <input value={input.stepen} onChange={changeHandler} type="text" className="form-control" id="floatingCity" placeholder="City" />
-            <label htmlFor="floatingPassword">Степень изношенности карточки</label>
+            <input value={input.status} onChange={changeStatus} type="text" name="status" className="form-control" id="floatingCity" placeholder="City" />
+            <label htmlFor="floatingPassword">{card.status}</label>
           </div>
           <div className="form-floating">
-            <input value={input.city} onChange={changeHandler} type="text" className="form-control" id="floatingCity" placeholder="Price" />
-            <label htmlFor="floatingPassword">Город продавца</label>
+            <input value={input.city} onChange={changeCity} type="text" name="city" className="form-control" id="floatingCity" placeholder="Price" />
+            <label htmlFor="floatingPassword">{card.city}</label>
           </div>
           <div className="form-floating">
-            <input value={input.price} onChange={changeHandler} type="text" className="form-control" id="floatingCity" placeholder="Degree of wear" />
-            <label htmlFor="floatingPassword">Цена</label>
+            <input value={input.cost} onChange={changeCost} type="text" name="cost" className="form-control" id="floatingCity" placeholder="Degree of wear" />
+            <label htmlFor="floatingPassword">{card.cost}</label>
           </div>
           <div className="col-12">
             <div className="d-grid gap-2 col-6 mx-auto">

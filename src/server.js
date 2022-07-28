@@ -5,18 +5,17 @@ import session from 'express-session';
 import store from 'session-file-store';
 import template from './template';
 import apiRouter from './routes/apiRouts';
-import accRout from './routes/newRouter';
-import cartRout from './routes/newRouter';
+import newRouter from './routes/newRouter';
+import authCheck from './components/middlewares/authCheck';
 
 const app = express();
 const PORT = 3000;
+const FileStore = store(session);
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-const FileStore = store(session);
 
 const sessionConfig = {
   name: 'user_sid', 				// Имя куки для хранения id сессии. По умолчанию - connect.sid
@@ -37,6 +36,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1', apiRouter);
+app.use('/cart', newRouter.js);
+
+app.use(authCheck);
 
 app.listen(PORT, () => {
   console.log(`App has started on port ${PORT}`);
