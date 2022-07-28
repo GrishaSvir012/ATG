@@ -14,6 +14,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api/v1', apiRouter);
+app.use('/signup', indexRouter);
 
 app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl }));

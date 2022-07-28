@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignInForm({ setAuthUser }) {
@@ -15,10 +14,15 @@ export default function SignInForm({ setAuthUser }) {
         .then((res) => setAuthUser(res.data))
       navigate('/');
     }
+        // .catch((error) => {
+        //   console.log(Error);
+        //   navigate('/signin');
+        // });
+      // navigate('/');
   };
   return (
     <form onSubmit={submitHandler}>
-         <h1>Sign In</h1>
+      <h1>Sign In</h1>
       <div className="mb-3">
         <label htmlFor="exampleInputUser" className="form-label">Username</label>
         <input
