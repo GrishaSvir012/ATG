@@ -16,9 +16,12 @@ app.use('/api/v1', apiRouter);
 
 
 
+
 app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl }));
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`App has started on port ${PORT}`);
