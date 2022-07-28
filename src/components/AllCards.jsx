@@ -5,6 +5,7 @@ export default function AllCards({ cards, setCards }) {
   return (
 
     <div className="d-flex justify-content-between flex-wrap">
+
       {
         cards
           ? cards.map((card) => (
@@ -17,5 +18,6 @@ export default function AllCards({ cards, setCards }) {
           : 'ЧОРТ!'
       }
     </div>
+
   );
 }

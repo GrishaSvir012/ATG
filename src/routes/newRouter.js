@@ -1,13 +1,14 @@
 import express from 'express';
 import template from '../template';
-import { Card } from '../db/models';
 
-router.get('/api/v1', async (req, res) => {
-  const cards = await Card.findAll({ order: [['updatedAt', 'DESC']] });
-  res.json(cards);
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  res.send(template({ path: req.originalUrl }));
+  console.log('req.originalUrl', req.originalUrl);
 });
 
-router.get('/api/v1', (req, res) => {
+router.get('/cart', (req, res) => {
   res.send(template({ path: req.originalUrl }));
   console.log('req.originalUrl', req.originalUrl);
 });
