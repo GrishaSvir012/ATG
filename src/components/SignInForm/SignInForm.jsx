@@ -9,9 +9,9 @@ export default function SignInForm({ setAuthUser }) {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(input);
-    if (input.password !== '' && input.username !== '') {
-      axios.post('/api/v1', input)
-        .then((res) => setAuthUser(res.data))
+    if (input.password !== '' && input.eMail !== '') {
+      axios.post('/api/v1/signin', input)
+        .then((res) => setAuthUser(res.data));
       navigate('/');
     }
         // .catch((error) => {
@@ -29,7 +29,7 @@ export default function SignInForm({ setAuthUser }) {
           value={input.username}
           onChange={changeHandler}
           type="text"
-          name="username"
+          name="eMail"
           className="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
