@@ -17,10 +17,9 @@ export default function NavBarPublic() {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Личный кабинет</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Корзина</a>
+                {/* <a className="nav-link" href="#">Sign Up</a> */}
+                <Link className="nav-link" to="/signup">Sign Up</Link>
+                <Link className="nav-link" to="/signin">Sign In</Link>
               </li>
             </ul>
           </div>
