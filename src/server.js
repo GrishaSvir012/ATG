@@ -5,8 +5,7 @@ import session from 'express-session';
 import store from 'session-file-store';
 import template from './template';
 import apiRouter from './routes/apiRouts';
-import accRout from './routes/newRouter';
-import cartRout from './routes/newRouter';
+import indexRouter from './routes/indexRouter';
 
 const app = express();
 const PORT = 3000;
@@ -37,6 +36,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1', apiRouter);
+
 
 app.listen(PORT, () => {
   console.log(`App has started on port ${PORT}`);

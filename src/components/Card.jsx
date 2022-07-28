@@ -20,4 +20,3 @@ export default function Card({ card, setCards }) {
     </div>
   );
 }
-
