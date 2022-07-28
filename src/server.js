@@ -1,12 +1,13 @@
 import express from 'express';
 import morgan from 'morgan';
+import path from 'path';
 import template from './template';
 import apiRouter from './routes/apiRouts';
 
 const app = express();
 const PORT = 3000;
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -17,5 +18,6 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
+  // console.log(__dirname);
   console.log(`App has started on port ${PORT}`);
 });
