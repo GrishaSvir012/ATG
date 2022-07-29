@@ -11,29 +11,34 @@ export default function SignInForm({ setAuthUser }) {
     console.log(input);
     if (input.password !== '' && input.eMail !== '') {
       axios.post('/api/v1/signin', input)
-        .then((res) => setAuthUser(res.data));
-      navigate('/');
+        .then((res) => {
+          setAuthUser(res.data);
+          navigate('/');
+        });
     }
-        // .catch((error) => {
-        //   console.log(Error);
-        //   navigate('/signin');
-        // });
-      // navigate('/');
+    // .catch((error) => {
+    //   console.log(Error);
+    //   navigate('/signin');
+    // });
+    // navigate('/');
   };
   return (
+    <div className="col-md-4 offset-md-4">
     <form onSubmit={submitHandler}>
+    <div className="text-center logo mt-3">
       <h1>Sign In</h1>
+    </div>
       <div className="mb-3">
-        <label htmlFor="exampleInputUser" className="form-label">Username</label>
+        <label htmlFor="exampleInputUser" className="form-label">E-mail address</label>
         <input
-          value={input.username}
+          value={input.eMail}
           onChange={changeHandler}
-          type="text"
+          type="email"
           name="eMail"
           className="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
-          placeholder="Enter userName"
+          placeholder="Enter eMail"
         />
       </div>
       <div className="mb-3">
@@ -45,10 +50,12 @@ export default function SignInForm({ setAuthUser }) {
           name="password"
           className="form-control"
           id="exampleInputPassword"
+          aria-describedby="password"
           placeholder="Enter password"
         />
       </div>
       <button type="submit" className="btn btn-primary">Sign In</button>
     </form>
+    </div>
   );
 }
