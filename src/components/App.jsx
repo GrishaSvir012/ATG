@@ -25,7 +25,7 @@ export default function App({usernameSession}) {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/percAcc" element={<PersAcc />} />
+        <Route path="/persAcc" element={<PersAcc />} />
         <Route path="/card" element={<Card />} />
         <Route path="/signup" element={<SignUpForm setAuthUser={setAuthUser} authUser={authUser} />} />
         <Route path="/signin" element={<SignInForm setAuthUser={setAuthUser}/>} />

@@ -5,6 +5,7 @@ import session from 'express-session';
 import store from 'session-file-store';
 import template from './template';
 import apiRouter from './routes/apiRouts';
+import _ from 'lodash';
 import indexRouter from './routes/indexRouter';
 
 const app = express();
@@ -13,6 +14,7 @@ const PORT = 3000;
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json({extended: true}));
 app.use(express.json());
 
 const FileStore = store(session);

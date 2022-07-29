@@ -6,7 +6,7 @@ export default function Card({ card, setCards }) {
       className="card"
       style={{ backgroundColor: 'purple', width: 250 }}
     >
-      <img src={`../../img/${card.img}`} className="card-img-top" alt="Картинка" />
+      <img src={`${card.img}`} className="card-img-top" alt="Картинка" />
       <div className="card-body py-0">
         <h5 className="card-title text-light">{card.nameCard}</h5>
         <ul>
