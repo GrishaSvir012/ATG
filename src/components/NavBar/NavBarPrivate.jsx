@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function NavBarPrivate() {
   return (
@@ -21,6 +21,9 @@ export default function NavBarPrivate() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">Корзина</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/logout">Выход</Link>
               </li>
             </ul>
           </div>
