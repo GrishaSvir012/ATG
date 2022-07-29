@@ -4,6 +4,10 @@ import template from '../template';
 import {
   Card, User, Basket, sequelize,
 } from '../db/models';
+import path from 'path'
+import upload from '../middleWars/multer';
+
+
 
 const router = express.Router();
 
@@ -34,6 +38,15 @@ router.get('/basket1', async (req, res) => {
   res.json({ cards, summ });
 });
 
+
+router.post('/cards', upload.single('avatar'), async (req, res) => {
+
+  console.log(req.body);
+  console.log('----------->', req.file);
+  const cards = await Card.create({ nameCard: req.body.cardName, status: req.body.stepen, cost: req.body.price, img: req.file?.path.replace('public', '') });
+  res.sendStatus(200);
+});
+
 router.get('/cart', (req, res) => {
   res.send(template({ path: req.originalUrl }));
   console.log('req.originalUrl', req.originalUrl);
@@ -52,8 +65,18 @@ router.post('/signin', async (req, res) => {
       eMail: req.body.eMail,
     },
   });
-  req.session.name = currentUser?.name;
-  res.json({ name: currentUser?.name });
+  if (currentUser) {
+    const checkPass = await bcrypt.compare(req.body.password, currentUser.password);
+    if (checkPass) {
+      req.session.name = currentUser?.name;
+      res.json({ name: currentUser?.name });
+    }
+    else {
+      res.sendStatus(500);
+    }
+  } else {
+    res.sendStatus(404);
+  }
 });
 
 router.post('/signup', async (req, res) => {
@@ -80,6 +103,11 @@ router.post('/signup', async (req, res) => {
 router.get('/percAcc', (req, res) => {
   res.send(template({ path: req.originalUrl }));
   console.log('req.originalUrl', req.originalUrl);
+});
+
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.clearCookie('sId');
 });
 
 export default router;

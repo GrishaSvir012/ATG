@@ -14,14 +14,16 @@ export default function SignUpForm({ setAuthUser }) {
       axios.post('/api/v1/signup', input)
         .then((res) => {
           setAuthUser(res.data);
-          console.log(res.data, 'USER !!!!!!');
+          navigate('/');
         });
-      navigate('/');
     }
   };
   return (
+    <div className ="col-md-4 offset-md-4">
     <form onSubmit={submitHandler}>
+    <div className="text-center logo mt-3">
       <h1>Sign Up</h1>
+    </div>
       <div className="mb-3">
         <label htmlFor="exampleInputUser" className="form-label">Username</label>
         <input
@@ -82,7 +84,8 @@ export default function SignUpForm({ setAuthUser }) {
           <div className="invalid-feedback" />
         </div>
       </div>
-      <button type="submit" className="btn btn-primary">Sign Up</button>
+      <button type="submit" className="btn btn-primary mt-3">Sign Up</button>
     </form>
+    </div>
   );
 }

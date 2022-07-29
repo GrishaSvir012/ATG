@@ -7,6 +7,8 @@ import template from './template';
 import apiRouter from './routes/apiRouts';
 import newRouter from './routes/newRouter';
 import authCheck from './components/middlewares/authCheck';
+import _ from 'lodash';
+import indexRouter from './routes/indexRouter';
 
 const app = express();
 const PORT = 3000;
@@ -15,6 +17,7 @@ const FileStore = store(session);
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json({extended: true}));
 app.use(express.json());
 
 const sessionConfig = {
@@ -36,11 +39,16 @@ app.get('/', (req, res) => {
   res.send(template({ path: req.originalUrl, userId: req.session?.userId, usernameSession: req.session?.name }));
 });
 
+
 app.use('/api/v1', apiRouter);
 app.use('/cart', newRouter);
 
 app.use(authCheck);
 
+
+
 app.listen(PORT, () => {
   console.log(`App has started on port ${PORT}`);
 });
+
+

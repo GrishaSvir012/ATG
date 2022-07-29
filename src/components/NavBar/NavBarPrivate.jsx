@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function NavBarPrivate() {
   return (
@@ -17,10 +17,13 @@ export default function NavBarPrivate() {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/percAcc">Личный кабинет</Link>
+                <Link className="nav-link active" aria-current="page" to="/persAcc">Личный кабинет</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">Корзина</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/logout">Выход</Link>
               </li>
             </ul>
           </div>

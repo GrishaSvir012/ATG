@@ -10,6 +10,7 @@ import SignUpForm from './signUpForm/SignUpForm';
 import SignInForm from './SignInForm/SignInForm';
 import PersAcc from './PersAcc';
 import Card from './Card';
+import Logout from './logout/logout';
 
 export default function App({ userId, usernameSession }) {
   const [authUser, setAuthUser] = useState({ userId, usernameSession });
@@ -31,11 +32,12 @@ export default function App({ userId, usernameSession }) {
       <NavInvisibl />
       <Routes>
         <Route path="/" element={<Home cards={cards} setCards={setCards} cardsCart={cardsCart} authUser={authUser} setCardsCart={setCardsCart} />} />
-        {/* <Route path="/card" element={<Card setAuthUser={setAuthUser} cardsCart={cardsCart} setCardsCart={setCardsCart} />} /> */}
         <Route path="/percAcc" element={<PersAcc />} />
         <Route path="/cart" element={<Cart cards={cards} setCards={setCards} cardsCart={cardsCart} authUser={authUser} setCardsCart={setCardsCart} />} />
         <Route path="/signup" element={<SignUpForm setAuthUser={setAuthUser} authUser={authUser} />} />
         <Route path="/signin" element={<SignInForm setAuthUser={setAuthUser} />} />
+        <Route path="/logout" element={<Logout setAuthUser={setAuthUser}/>} />
+
       </Routes>
     </div>
   );
