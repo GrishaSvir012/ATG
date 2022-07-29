@@ -9,6 +9,7 @@ import SignUpForm from './signUpForm/SignUpForm';
 import SignInForm from './SignInForm/SignInForm';
 import PersAcc from './PersAcc';
 import Card from './Card';
+import Logout from './logout/logout';
 
 export default function App({usernameSession}) {
   const [authUser, setAuthUser] = useState(usernameSession);
@@ -28,6 +29,8 @@ export default function App({usernameSession}) {
         <Route path="/card" element={<Card />} />
         <Route path="/signup" element={<SignUpForm setAuthUser={setAuthUser} authUser={authUser} />} />
         <Route path="/signin" element={<SignInForm setAuthUser={setAuthUser}/>} />
+        <Route path="/logout" element={<Logout setAuthUser={setAuthUser}/>} />
+
       </Routes>
     </div>
   );

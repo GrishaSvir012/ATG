@@ -21,8 +21,18 @@ router.post('/signin', async (req, res) => {
       eMail: req.body.eMail,
     },
   });
-  req.session.name = currentUser?.name;
-  res.json({ name: currentUser?.name });
+  if (currentUser) {
+    const checkPass = await bcrypt.compare(req.body.password, currentUser.password);
+    if (checkPass) {
+      req.session.name = currentUser?.name;
+      res.json({ name: currentUser?.name });
+    }
+    else {
+      res.sendStatus(500);
+    }
+  } else {
+    res.sendStatus(404);
+  }
 });
 
 router.post('/signup', async (req, res) => {
@@ -43,9 +53,14 @@ router.post('/signup', async (req, res) => {
   res.json({ name: currentUser.name });
 });
 
-  router.get('/percAcc', (req, res) => {
+router.get('/percAcc', (req, res) => {
   res.send(template({ path: req.originalUrl }));
   console.log('req.originalUrl', req.originalUrl);
+});
+
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.clearCookie('sId');
 });
 
 export default router;

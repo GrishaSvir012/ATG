@@ -11,7 +11,7 @@ route.get('/', (req, res) => {
 route.post('/signup', (req, res) => {
   res.send(template({ path: req.originalUrl }));
   console.log('req.originalUrl', req.originalUrl);
-})
+});
 
 route.get('/signin', (req, res) => {
   res.send(template({ path: req.originalUrl }));
