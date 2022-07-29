@@ -32,11 +32,12 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 app.get('/', (req, res) => {
-  res.send(template({ path: req.originalUrl, usernameSession: req.session.name }));
+  console.log(req.session);
+  res.send(template({ path: req.originalUrl, userId: req.session?.userId, usernameSession: req.session?.name }));
 });
 
 app.use('/api/v1', apiRouter);
-app.use('/cart', newRouter.js);
+app.use('/cart', newRouter);
 
 app.use(authCheck);
 

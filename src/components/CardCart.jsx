@@ -1,13 +1,17 @@
 import axios from 'axios';
 import React from 'react';
 
-export default function Card({
+export default function CardCart({
   card, setCards, cardsCart, setCardsCart, authUser,
 }) {
   console.log(authUser, 'User in Card');
-  const changeBuyCard = () => {
-    axios.post('/api/v1/basket', { card, authUser });
-  };
+  // const changeBuyCard = () => {
+  //   axios.get('/api/v1/basket1', { card, authUser })
+  //     .then((res) => setCards(res.data));
+
+  //   setCardsCart();
+  // };
+
   return (
     <div
       className="card"
@@ -29,7 +33,7 @@ export default function Card({
         </ul>
       </div>
       <div className="card-body py-0">
-        <button type="button" onClick={changeBuyCard} className="btn btn-warning">Купить</button>
+        <button type="button" className="btn btn-warning">Купить</button>
       </div>
     </div>
   );

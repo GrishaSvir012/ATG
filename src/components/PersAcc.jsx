@@ -6,6 +6,7 @@ export default function PersAcc({ setAuthUser }) {
   const location = useLocation();
   const navigate = useNavigate();
   const { card } = location.state;
+  console.log(card);
   const [input, setInput] = useState({
     name: card.nameCard, status: card.status, city: card.city, cost: card.cost,
   });

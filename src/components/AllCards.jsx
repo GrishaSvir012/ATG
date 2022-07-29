@@ -1,7 +1,9 @@
 import React from 'react';
 import Card from './Card';
 
-export default function AllCards({ cards, setCards }) {
+export default function AllCards({
+  cards, setCards, cardsCart, setCardsCart, authUser
+}) {
   return (
 
     <div className="d-flex justify-content-between flex-wrap">
@@ -13,6 +15,9 @@ export default function AllCards({ cards, setCards }) {
               card={card}
               setCards={setCards}
               key={card.id}
+              cardsCart={cardsCart}
+              setCardsCart={setCardsCart}
+              authUser={authUser}
             />
           ))
           : 'ЧОРТ!'
