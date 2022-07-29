@@ -5,19 +5,20 @@ import session from 'express-session';
 import store from 'session-file-store';
 import template from './template';
 import apiRouter from './routes/apiRouts';
+import newRouter from './routes/newRouter';
+import authCheck from './components/middlewares/authCheck';
 import _ from 'lodash';
 import indexRouter from './routes/indexRouter';
 
 const app = express();
 const PORT = 3000;
+const FileStore = store(session);
 
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json({extended: true}));
 app.use(express.json());
-
-const FileStore = store(session);
 
 const sessionConfig = {
   name: 'user_sid', 				// Имя куки для хранения id сессии. По умолчанию - connect.sid
@@ -34,11 +35,15 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 
 app.get('/', (req, res) => {
-  res.send(template({ path: req.originalUrl, usernameSession: req.session.name }));
+  console.log(req.session);
+  res.send(template({ path: req.originalUrl, userId: req.session?.userId, usernameSession: req.session?.name }));
 });
 
 
 app.use('/api/v1', apiRouter);
+app.use('/cart', newRouter);
+
+app.use(authCheck);
 
 
 

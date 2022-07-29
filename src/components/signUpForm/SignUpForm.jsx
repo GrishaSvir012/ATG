@@ -10,7 +10,6 @@ export default function SignUpForm({ setAuthUser }) {
   const changeHandler = (e) => setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(input);
     if (input.password !== '' && input.name !== '' && input.city !== '' && input.eMail !== '') {
       axios.post('/api/v1/signup', input)
         .then((res) => {
